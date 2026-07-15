@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คลังพรอมต์ออกแบบการเรียนการสอนทางการพยาบาล | Nursing Instructional Design Prompt Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Trirong:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#11314f;
+  --navy-deep:#0a2238;
+  --navy-soft:#1c4368;
+  --teal:#0e7c7b;
+  --teal-bright:#16a3a1;
+  --gold:#c19a2e;
+  --gold-bright:#dcb648;
+  --paper:#f6f2e9;
+  --paper-card:#fffdf8;
+  --ink:#15222e;
+  --ink-soft:#41525f;
+  --line:#e2dccd;
+  --shadow:rgba(16,40,63,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'IBM Plex Sans Thai',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(14,124,123,.05), transparent 40%),
+    radial-gradient(circle at 88% 0%, rgba(193,154,46,.06), transparent 38%);
+}
+
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 55%, #163b5c 100%);
+  color:#f3eedf;
+  padding:54px 24px 70px;
+  position:relative;
+  overflow:hidden;
+}
+header::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:46px 46px;
+  mask-image:radial-gradient(circle at 70% 30%, #000, transparent 75%);
+}
+.header-inner{max-width:1140px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.8rem;font-weight:500;letter-spacing:.04em;
+  color:var(--gold-bright);
+  border:1px solid rgba(220,182,72,.35);
+  background:rgba(220,182,72,.08);
+  padding:7px 16px;border-radius:100px;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 0 4px rgba(220,182,72,.18)}
+header h1{
+  font-family:'Trirong',serif;font-weight:600;
+  font-size:clamp(1.9rem,4.2vw,3rem);line-height:1.18;
+  margin-bottom:14px;letter-spacing:-.01em;
+}
+header h1 .accent{color:var(--gold-bright)}
+header .sub{
+  max-width:730px;font-size:1.04rem;color:#cdd9e4;font-weight:300;
+}
+.header-stats{display:flex;gap:40px;margin-top:34px;flex-wrap:wrap}
+.stat .n{font-family:'Trirong',serif;font-size:2.05rem;font-weight:600;color:#fff;line-height:1}
+.stat .l{font-size:.82rem;color:#9fb6c9;margin-top:4px}
+
+/* ===== TOOLBAR ===== */
+.toolbar{
+  max-width:1140px;margin:-38px auto 0;padding:0 24px;position:relative;z-index:5;
+}
+.search-wrap{
+  background:var(--paper-card);border:1px solid var(--line);
+  border-radius:16px;padding:8px 8px 8px 18px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 22px 50px -26px var(--shadow);
+}
+.search-wrap svg{color:var(--teal);flex-shrink:0}
+#search{
+  flex:1;border:none;background:transparent;font-family:inherit;
+  font-size:1rem;color:var(--ink);padding:10px 0;outline:none;
+}
+#search::placeholder{color:#9aa7b2}
+.clear-btn{
+  border:none;background:var(--paper);color:var(--ink-soft);
+  width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:1.1rem;
+  display:none;align-items:center;justify-content:center;transition:.18s;
+}
+.clear-btn:hover{background:var(--line)}
+.clear-btn.show{display:flex}
+
+.filters{
+  max-width:1140px;margin:18px auto 0;padding:0 24px;
+  display:flex;gap:9px;flex-wrap:wrap;
+}
+.chip{
+  border:1px solid var(--line);background:var(--paper-card);
+  color:var(--ink-soft);font-family:inherit;font-size:.86rem;font-weight:500;
+  padding:8px 16px;border-radius:100px;cursor:pointer;transition:.18s;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.chip:hover{border-color:var(--teal);color:var(--teal)}
+.chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip .cnt{
+  font-size:.72rem;background:rgba(0,0,0,.07);padding:1px 8px;border-radius:100px;
+}
+.chip.active .cnt{background:rgba(255,255,255,.16)}
+
+/* ===== GRID ===== */
+.grid{
+  max-width:1140px;margin:34px auto 0;padding:0 24px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:22px;
+}
+.card{
+  background:var(--paper-card);border:1px solid var(--line);border-radius:18px;
+  overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 18px 44px -30px var(--shadow);transition:.2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 26px 54px -28px var(--shadow);border-color:#d3cbb6}
+.card-head{padding:22px 24px 16px}
+.cat-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.74rem;font-weight:600;letter-spacing:.02em;
+  color:var(--teal);background:rgba(14,124,123,.09);
+  padding:4px 12px;border-radius:100px;margin-bottom:13px;
+}
+.card h3{
+  font-family:'Trirong',serif;font-weight:600;font-size:1.18rem;
+  color:var(--navy);line-height:1.35;margin-bottom:5px;
+}
+.card .en{font-size:.82rem;color:#8d99a3;font-weight:400;font-style:italic}
+.card .desc{font-size:.9rem;color:var(--ink-soft);margin-top:11px;line-height:1.55}
+
+.prompt-wrap{padding:0 24px 4px;flex:1}
+.prompt-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin:6px 0 9px;
+}
+.prompt-bar .lbl{
+  font-size:.72rem;font-weight:600;letter-spacing:.08em;color:#9aa7b2;
+  display:flex;align-items:center;gap:6px;
+}
+.prompt-bar .lbl .rtcf{color:var(--gold);font-weight:700}
+.copy-btn{
+  border:1px solid var(--line);background:var(--paper);color:var(--navy);
+  font-family:inherit;font-size:.78rem;font-weight:600;
+  padding:6px 13px;border-radius:9px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;transition:.18s;
+}
+.copy-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.copy-btn.done{background:var(--gold);border-color:var(--gold);color:#fff}
+pre{
+  font-family:'IBM Plex Mono','IBM Plex Sans Thai',monospace;
+  font-size:.82rem;line-height:1.62;
+  background:var(--navy-deep);color:#d7e3ee;border-radius:12px;
+  padding:16px 18px;white-space:pre-wrap;word-break:break-word;
+  max-height:300px;overflow:auto;border:1px solid var(--navy-soft);
+  cursor:text;
+}
+pre .ph{color:var(--gold-bright);font-weight:500}
+pre .sec{color:var(--teal-bright);font-weight:600}
+pre::-webkit-scrollbar{width:8px}
+pre::-webkit-scrollbar-track{background:transparent}
+pre::-webkit-scrollbar-thumb{background:var(--navy-soft);border-radius:8px}
+
+.usecase{
+  margin:16px 0 0;padding:15px 24px 22px;
+  background:linear-gradient(180deg,#f4efe2,#faf6ec);border-top:1px solid var(--line);
+}
+.usecase .uc-head{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.usecase .uc-head svg{color:var(--gold);flex-shrink:0}
+.usecase p{font-size:.87rem;color:var(--ink-soft);line-height:1.55}
+.usecase p b{color:var(--navy);font-weight:600}
+
+.empty{grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--ink-soft)}
+.empty svg{color:var(--line);margin-bottom:14px}
+.empty h4{font-family:'Trirong',serif;color:var(--navy);font-size:1.2rem;margin-bottom:6px}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--navy-deep);color:#9fb6c9;text-align:center;
+  padding:46px 24px;font-size:.86rem;margin-top:56px;
+}
+footer .tip{
+  max-width:780px;margin:0 auto 24px;color:#c3d2de;font-size:.92rem;line-height:1.65;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:20px 24px;text-align:left;
+}
+footer .tip b{color:var(--gold-bright)}
+footer .tip .rtcf-key{color:var(--teal-bright);font-weight:600}
+footer .credit{color:var(--gold-bright);font-weight:500;margin-top:10px}
+footer .muted{color:#6f8194;font-size:.8rem;margin-top:4px}
+
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--navy);color:#fbf7ec;padding:13px 24px;border-radius:12px;
+  font-size:.9rem;font-weight:500;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);
+  opacity:0;transition:.3s;z-index:99;border:1px solid var(--teal);
+  display:flex;align-items:center;gap:9px;
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast svg{color:var(--gold-bright)}
+
+@media(max-width:560px){
+  header{padding:40px 20px 60px}
+  .grid{grid-template-columns:1fr;padding:0 16px}
+  .toolbar,.filters{padding:0 16px}
+  .header-stats{gap:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">Prompt Library · ออกแบบการเรียนการสอนทางการพยาบาลยุค AI</div>
+    <h1>คลังพรอมต์<span class="accent">ออกแบบการเรียนการสอน</span><br>ทางการพยาบาล</h1>
+    <p class="sub">ชุดพรอมต์พร้อมใช้สำหรับอาจารย์พยาบาล ครอบคลุมตั้งแต่การออกแบบหลักสูตร การจัดทำ CLOs ให้สอดคล้องกับ PLOs ตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ การใช้ Bloom's Taxonomy การออกแบบประมวลรายวิชา (มคอ.3) ไปจนถึงการวัดและประเมินผลและการทวนสอบ ทุกพรอมต์ออกแบบตามโครงสร้าง RTCF คัดลอกแล้วปรับใช้ได้ทันที</p>
+    <div class="header-stats">
+      <div class="stat"><div class="n">7</div><div class="l">หมวดงานออกแบบการสอน</div></div>
+      <div class="stat"><div class="n">24</div><div class="l">พรอมต์พร้อมใช้</div></div>
+      <div class="stat"><div class="n">RTCF</div><div class="l">โครงสร้างพรอมต์มาตรฐาน</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="text" placeholder="ค้นหาพรอมต์... เช่น CLO, Bloom, rubric, OSCE, มคอ.3, simulation">
+    <button class="clear-btn" id="clearBtn" aria-label="ล้างคำค้น">✕</button>
+  </div>
+</div>
+
+<div class="filters" id="filters"></div>
+
+<main class="grid" id="grid"></main>
+
+<footer>
+  <div class="tip">
+    <b>วิธีใช้ให้ได้ผลดีที่สุด</b> — ทุกพรอมต์ในคลังนี้สร้างตามโครงสร้าง <span class="rtcf-key">RTCF</span> คือ
+    <b>R</b>ole (กำหนดบทบาทผู้เชี่ยวชาญ), <b>T</b>ask (ระบุงานให้ชัด), <b>C</b>ontext (ให้บริบทรายวิชา/หลักสูตร), <b>F</b>ormat (กำหนดรูปแบบผลลัพธ์)
+    ก่อนใช้ ให้แทนค่าในวงเล็บ <span style="color:var(--gold-bright)">[...]</span> ด้วยข้อมูลจริงของรายวิชาท่าน แล้วแนบ มคอ.2 / PLOs / เกณฑ์สภาการพยาบาลที่เกี่ยวข้องเป็นไฟล์ประกอบ ผลลัพธ์จะแม่นยำและตรงบริบทยิ่งขึ้น
+  </div>
+  <div class="credit">ออกแบบและพัฒนาโดย ผศ.ศราวุธ เรืองสวัสดิ์</div>
+  <div class="muted">วิทยาลัยพยาบาลบรมราชชนนี สุราษฎร์ธานี คณะพยาบาลศาสตร์ สถาบันพระบรมราชชนก</div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>
+  <span>คัดลอกพรอมต์แล้ว พร้อมนำไปใช้</span>
+</div>
+
+<script>
+const CATS = [
+  {id:"curriculum", name:"ออกแบบ&พัฒนาหลักสูตร", icon:"📐"},
+  {id:"clo", name:"CLOs–PLOs สอดคล้อง", icon:"🎯"},
+  {id:"bloom", name:"Bloom's Taxonomy", icon:"🪜"},
+  {id:"syllabus", name:"ประมวลรายวิชา (มคอ.3)", icon:"📄"},
+  {id:"instruction", name:"การจัดการเรียนการสอน", icon:"🧑‍🏫"},
+  {id:"assess", name:"วัดและประเมินผล", icon:"📊"},
+  {id:"verify", name:"ประเมิน&ทวนสอบหลักสูตร", icon:"🔁"},
+];
+
+const PROMPTS = [
+/* ===== 1. CURRICULUM DESIGN ===== */
+{
+  cat:"curriculum",
+  title:"วิเคราะห์ความต้องการเพื่อพัฒนาหลักสูตร",
+  en:"Curriculum Needs Analysis",
+  desc:"สังเคราะห์ความต้องการของผู้มีส่วนได้ส่วนเสีย บริบทวิชาชีพ และแนวโน้มสุขภาพ เพื่อเป็นฐานออกแบบหลักสูตรพยาบาล",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญด้านการพัฒนาหลักสูตรพยาบาลศาสตร์และการศึกษาที่เน้นผลลัพธ์ (Outcome-Based Education)
+
+บริบท: เรากำลังพัฒนา/ปรับปรุงหลักสูตร [ชื่อหลักสูตร เช่น พยาบาลศาสตรบัณฑิต] ของ [ชื่อสถาบัน] โดยมีข้อมูลประกอบดังนี้
+- ความต้องการกำลังคนของระบบสุขภาพ: [ระบุ]
+- ผลสำรวจผู้ใช้บัณฑิต/ผู้มีส่วนได้ส่วนเสีย: [ระบุ]
+- สมรรถนะที่สภาการพยาบาลกำหนด: [ระบุ]
+- แนวโน้มสุขภาพและเทคโนโลยีที่เกี่ยวข้อง: [ระบุ]
+
+งาน: วิเคราะห์และสังเคราะห์ข้อมูลข้างต้น เพื่อ
+1. สรุปช่องว่าง (gap) ระหว่างหลักสูตรปัจจุบันกับความต้องการ
+2. เสนอสมรรถนะหลักของบัณฑิตที่หลักสูตรควรผลิต
+3. จัดลำดับความสำคัญของประเด็นที่ต้องปรับปรุง พร้อมเหตุผล
+
+รูปแบบผลลัพธ์: ตารางสรุป gap analysis + ข้อเสนอเชิงนโยบาย 5–7 ข้อ ใช้ภาษาวิชาการไทยที่เป็นทางการ`,
+  uc:"<b>กรณีใช้งาน:</b> คณะกรรมการพัฒนาหลักสูตรใช้ก่อนเปิดเวที (ร่าง) มคอ.2 เพื่อให้การออกแบบ PLOs ตั้งต้นจากข้อมูลความต้องการจริง ไม่ใช่ลอกหลักสูตรเดิม"
+},
+{
+  cat:"curriculum",
+  title:"กำหนดปรัชญา วัตถุประสงค์ และ PLOs",
+  en:"Program Philosophy & PLO Formulation",
+  desc:"ร่างปรัชญาหลักสูตร วัตถุประสงค์ และผลลัพธ์การเรียนรู้ระดับหลักสูตร (PLOs) ให้สอดคล้องกับมาตรฐานคุณวุฒิและวิชาชีพ",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการเขียนผลลัพธ์การเรียนรู้ตามแนวคิด Outcome-Based Education และกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษาแห่งชาติ
+
+บริบท: หลักสูตร [ชื่อหลักสูตร] มีจุดเน้น/อัตลักษณ์คือ [ระบุ เช่น การพยาบาลชุมชน/ผู้สูงอายุ/ดิจิทัล] กลุ่มผู้ใช้บัณฑิตหลักคือ [ระบุ] และต้องสอดคล้องกับสมรรถนะของสภาการพยาบาล [แนบเอกสารถ้ามี]
+
+งาน:
+1. ร่างปรัชญาหลักสูตรที่สะท้อนอัตลักษณ์และคุณค่าวิชาชีพการพยาบาล
+2. กำหนดวัตถุประสงค์ของหลักสูตร 4–6 ข้อ
+3. ร่าง PLOs จำนวน [6–9] ข้อ ครอบคลุมทั้งด้านความรู้ ทักษะ จริยธรรม และทักษะวิชาชีพ โดยเขียนเป็นประโยคที่วัดได้ ขึ้นต้นด้วยคำกริยาเชิงพฤติกรรม
+
+รูปแบบผลลัพธ์: หัวข้อชัดเจน แต่ละ PLO ระบุระดับความคาดหวัง (proficiency) และโยงกับมาตรฐานผลการเรียนรู้ที่เกี่ยวข้อง`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ร่าง PLOs ตั้งต้นสำหรับเวทีพิจารณาหลักสูตร แล้วให้ผู้ทรงคุณวุฒิวิพากษ์ ก่อนนำไปกรอกใน มคอ.2 หมวดผลลัพธ์การเรียนรู้"
+},
+{
+  cat:"curriculum",
+  title:"จัดทำ Curriculum Mapping (PLO × รายวิชา)",
+  en:"Curriculum Mapping Matrix",
+  desc:"สร้างตารางแสดงความรับผิดชอบของแต่ละรายวิชาต่อ PLOs ระบุระดับ Introduce / Reinforce / Master",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการออกแบบโครงสร้างหลักสูตรและ curriculum mapping
+
+บริบท: หลักสูตรมี PLOs ดังนี้ [วาง PLO ทั้งหมด] และมีรายวิชาในแผนการศึกษาดังนี้ [วางรายชื่อรายวิชาพร้อมชั้นปี/ภาคการศึกษา]
+
+งาน: จัดทำตาราง Curriculum Mapping โดย
+1. แสดงความสัมพันธ์ระหว่างรายวิชา (แถว) กับ PLO (คอลัมน์)
+2. ระบุระดับการพัฒนาในแต่ละช่อง ด้วยสัญลักษณ์ I = Introduce, R = Reinforce, M = Master
+3. ตรวจสอบความสมดุล: PLO ใดถูกพัฒนาน้อย/มากเกินไป และรายวิชาใดรับผิดชอบ PLO ซ้ำซ้อน
+4. เสนอข้อปรับปรุงให้ทุก PLO มีเส้นทางพัฒนาครบ I→R→M
+
+รูปแบบผลลัพธ์: ตาราง mapping + บทวิเคราะห์ความสมดุล + ข้อเสนอแนะ`,
+  uc:"<b>กรณีใช้งาน:</b> ประธานหลักสูตรใช้ตรวจสอบว่าทุก PLO มีรายวิชารองรับครบถ้วนก่อนส่ง สกอ./สป.อว. และใช้ชี้เป้ารายวิชาที่ต้องปรับ CLO"
+},
+
+/* ===== 2. CLO–PLO ===== */
+{
+  cat:"clo",
+  title:"กำหนดผลลัพธ์การเรียนรู้ระดับรายวิชา (CLOs)",
+  en:"Defining Course-Level Learning Outcomes",
+  desc:"ยกร่าง CLOs ตั้งต้นของรายวิชาจากคำอธิบายรายวิชาและตำแหน่งของวิชาในหลักสูตร ให้เป็นข้อความที่ชัด วัดได้ และครบทุกพิสัยก่อนนำไปจัดความสอดคล้องกับ PLOs",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการกำหนดผลลัพธ์การเรียนรู้ระดับรายวิชา (Course-Level Learning Outcomes) ในหลักสูตรพยาบาลที่เน้นผลลัพธ์ (Outcome-Based Education)
+
+บริบท:
+- รายวิชา: [รหัส–ชื่อวิชา (ไทย/อังกฤษ)] [น(บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)] หน่วยกิต ชั้นปี [..] ภาค [..]
+- คำอธิบายรายวิชา: [วางคำอธิบายรายวิชา]
+- ตำแหน่งของวิชาในหลักสูตร: [วิชาพื้นฐาน/วิชาชีพ/วิชาปฏิบัติ] เรียนต่อจาก [วิชาก่อนหน้า] และเป็นฐานให้ [วิชาถัดไป]
+- ลักษณะผู้เรียนและพื้นความรู้เดิม: [ระบุ]
+
+งาน:
+1. วิเคราะห์คำอธิบายรายวิชาเพื่อสกัดแก่นความรู้ ทักษะ และเจตคติที่วิชานี้ต้องสร้าง
+2. กำหนด CLOs จำนวน [4–6] ข้อ ที่
+   - เขียนเป็นประโยควัดได้หนึ่งพฤติกรรมต่อข้อ ขึ้นต้นด้วยคำกริยาเชิงพฤติกรรม
+   - มีองค์ประกอบครบ: พฤติกรรม + เงื่อนไข + เกณฑ์ (ถ้ามี)
+   - ตรงระดับ Bloom ที่เหมาะกับชั้นปีและตำแหน่งของวิชา
+   - กระจายครอบคลุมทั้งด้านความรู้ ทักษะปัญญา เจตคติ/จิตพิสัย และทักษะปฏิบัติทางการพยาบาลตามธรรมชาติของวิชา
+3. ระบุระดับ Bloom และพิสัยกำกับแต่ละ CLO และชี้ว่ามี CLO ใดซ้ำซ้อนหรือกว้าง/แคบเกินไปที่ควรปรับ
+
+รูปแบบผลลัพธ์: รายการ CLO เรียงข้อ + ตารางกำกับ (CLO | คำกริยา | ระดับ Bloom | พิสัย) + ข้อสังเกตเพื่อปรับแก้ ใช้ภาษาวิชาการไทยที่เป็นทางการ`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์ผู้รับผิดชอบรายวิชาใช้ยกร่าง CLO ตั้งต้นจากคำอธิบายรายวิชาในขั้นแรกสุด ก่อนนำไปจัดความสอดคล้องกับ PLOs และออกแบบกิจกรรม/การวัดผลในขั้นถัดไป"
+},
+{
+  cat:"clo",
+  title:"เขียน CLOs ให้สอดคล้องกับ PLOs",
+  en:"Writing CLOs Aligned to PLOs",
+  desc:"แปลง PLOs ที่รายวิชารับผิดชอบ ให้เป็นผลลัพธ์การเรียนรู้ระดับรายวิชา (CLOs) ที่วัดได้และตรงระดับ",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการเขียนผลลัพธ์การเรียนรู้ระดับรายวิชา (Course Learning Outcomes) ตามหลัก constructive alignment
+
+บริบท:
+- รายวิชา: [รหัส–ชื่อวิชา] จำนวน [น] หน่วยกิต ชั้นปี [..]
+- คำอธิบายรายวิชา: [วางคำอธิบายรายวิชา]
+- PLOs ที่รายวิชานี้รับผิดชอบ: [วาง PLO ที่เกี่ยวข้อง พร้อมระดับ I/R/M]
+
+งาน:
+1. เขียน CLOs จำนวน [4–6] ข้อ ที่ "ส่งต่อ" ไปยัง PLO ที่รับผิดชอบ
+2. แต่ละ CLO ต้องเขียนตามหลัก SMART/วัดได้ ขึ้นต้นด้วยคำกริยาเชิงพฤติกรรมที่ตรงระดับ Bloom ที่เหมาะสมกับชั้นปี
+3. ระบุว่าแต่ละ CLO โยงกับ PLO ข้อใด และอยู่ในพิสัยใด (ความรู้/ทักษะปัญญา/เจตคติ/ทักษะปฏิบัติ)
+
+รูปแบบผลลัพธ์: รายการ CLO + ตารางโยง CLO→PLO + หมายเหตุระดับ Bloom ของแต่ละข้อ`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์ผู้รับผิดชอบรายวิชาใช้เขียน CLO ใหม่ให้ส่งต่อ PLO ได้จริง แทนการคัดลอกวัตถุประสงค์เดิมที่วัดไม่ได้"
+},
+{
+  cat:"clo",
+  title:"สร้างตารางความสอดคล้อง CLO–PLO Matrix",
+  en:"CLO–PLO Alignment Matrix",
+  desc:"จัดทำเมทริกซ์แสดงน้ำหนักความสอดคล้องระหว่าง CLO ของรายวิชากับ PLO ของหลักสูตร พร้อมตรวจช่องว่าง",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการวิเคราะห์ความสอดคล้องของผลลัพธ์การเรียนรู้
+
+บริบท:
+- CLOs ของรายวิชา [รหัส–ชื่อวิชา]: [วาง CLO ทั้งหมด]
+- PLOs ของหลักสูตร: [วาง PLO ทั้งหมด]
+
+งาน:
+1. สร้างเมทริกซ์ CLO (แถว) × PLO (คอลัมน์) ระบุระดับความสอดคล้องในแต่ละช่อง (เช่น 3=สูง, 2=ปานกลาง, 1=ต่ำ, เว้นว่าง=ไม่เกี่ยวข้อง)
+2. สรุปว่า CLO ใดยังไม่โยงไปยัง PLO ใดเลย (CLO ลอย) และ PLO ใดที่รายวิชาประกาศรับผิดชอบแต่ไม่มี CLO รองรับ (gap)
+3. เสนอการปรับ CLO เพื่ออุดช่องว่าง
+
+รูปแบบผลลัพธ์: ตารางเมทริกซ์ + รายการ gap + ข้อเสนอแก้ไขเป็นข้อ ๆ`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้เป็นหลักฐานความสอดคล้องในการประกันคุณภาพระดับหลักสูตร (AUN-QA Criterion 2–3) และแนบประกอบ มคอ.3"
+},
+{
+  cat:"clo",
+  title:"ตรวจสอบ Constructive Alignment",
+  en:"Constructive Alignment Check",
+  desc:"ตรวจว่า CLO–กิจกรรมการเรียนรู้–วิธีวัดผล สอดคล้องเป็นเส้นเดียวกันครบทุกข้อหรือไม่",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญหลัก Constructive Alignment ของ John Biggs
+
+บริบท: รายวิชา [รหัส–ชื่อวิชา] มีองค์ประกอบดังนี้
+- CLOs: [วาง CLO ทั้งหมด]
+- กิจกรรมการเรียนรู้ (Teaching & Learning Activities) ที่ใช้: [ระบุ]
+- วิธีวัดและประเมินผล (Assessment) ที่ใช้: [ระบุพร้อมสัดส่วนคะแนน]
+
+งาน:
+1. ตรวจสอบว่าแต่ละ CLO มีทั้งกิจกรรมการเรียนรู้และวิธีวัดผลที่ "ตรงระดับพฤติกรรม" รองรับครบหรือไม่
+2. ชี้จุดที่ misalignment เช่น CLO ระดับวิเคราะห์/ปฏิบัติ แต่วัดด้วยข้อสอบความจำอย่างเดียว
+3. เสนอกิจกรรมและวิธีวัดที่เหมาะสมแทน
+
+รูปแบบผลลัพธ์: ตาราง 3 คอลัมน์ (CLO | กิจกรรม | การวัด) + ธงเตือนจุด misalignment + ข้อเสนอปรับ`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ก่อนเปิดสอน เพื่อกันปัญหา CLO ปฏิบัติการพยาบาล แต่กลับวัดด้วยข้อสอบปรนัยล้วน ทำให้ทวนสอบไม่ผ่าน"
+},
+
+/* ===== 3. BLOOM ===== */
+{
+  cat:"bloom",
+  title:"เลือกคำกริยาเชิงพฤติกรรมตามระดับ Bloom",
+  en:"Bloom Action Verbs Selection",
+  desc:"เลือกคำกริยาที่วัดได้ตรงระดับ Revised Bloom's Taxonomy สำหรับการเขียน CLO/วัตถุประสงค์",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการเขียนวัตถุประสงค์เชิงพฤติกรรมตาม Revised Bloom's Taxonomy (Anderson & Krathwohl)
+
+บริบท: ฉันกำลังเขียนผลลัพธ์การเรียนรู้สำหรับหัวข้อ/รายวิชา [ระบุหัวข้อ เช่น การพยาบาลผู้ป่วยภาวะหัวใจล้มเหลว] สำหรับนักศึกษาชั้นปี [..] ระดับที่คาดหวังคือ [ระบุ เช่น ประยุกต์ใช้/วิเคราะห์]
+
+งาน:
+1. เสนอคำกริยาเชิงพฤติกรรมที่เหมาะสม แยกตาม 6 ระดับ (จำ–เข้าใจ–ประยุกต์–วิเคราะห์–ประเมินค่า–สร้างสรรค์) อย่างน้อยระดับละ 5 คำ
+2. ชี้ว่าคำกริยาใดควรหลีกเลี่ยงเพราะวัดไม่ได้ (เช่น เข้าใจ ตระหนัก รู้)
+3. ยกตัวอย่างประโยค CLO 1 ข้อ ในระดับที่ฉันต้องการ พร้อมเงื่อนไขและเกณฑ์
+
+รูปแบบผลลัพธ์: ตารางคำกริยาตามระดับ + รายการคำต้องห้าม + ตัวอย่าง CLO`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์ใหม่ใช้เลือกคำกริยาให้ตรงระดับ แทนการใช้คำว่า 'เข้าใจ/ตระหนัก' ที่ทวนสอบและออกข้อสอบไม่ได้"
+},
+{
+  cat:"bloom",
+  title:"เขียนวัตถุประสงค์ครอบคลุม 3 พิสัย",
+  en:"Objectives Across Three Domains",
+  desc:"ร่างวัตถุประสงค์ครอบคลุมพุทธิพิสัย จิตพิสัย และทักษะพิสัย ให้สมดุลกับธรรมชาติวิชาพยาบาล",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการออกแบบวัตถุประสงค์การเรียนรู้ครอบคลุม 3 พิสัย (Cognitive, Affective, Psychomotor)
+
+บริบท: หัวข้อการสอน [ระบุ] รายวิชา [ระบุ] ระยะเวลา [ระบุ] รูปแบบการสอน [บรรยาย/ปฏิบัติ/คลินิก]
+
+งาน:
+1. เขียนวัตถุประสงค์ด้านพุทธิพิสัย (ความรู้/การคิด) อ้างอิง Bloom
+2. เขียนวัตถุประสงค์ด้านจิตพิสัย (เจตคติ/ค่านิยมวิชาชีพ) อ้างอิง Krathwohl (รับรู้–ตอบสนอง–เห็นคุณค่า–จัดระบบ–สร้างลักษณะนิสัย)
+3. เขียนวัตถุประสงค์ด้านทักษะพิสัย (ทักษะปฏิบัติการพยาบาล) อ้างอิง Simpson/Dave
+4. ตรวจให้สมดุลกับธรรมชาติของวิชาชีพการพยาบาลที่เน้นทั้งความรู้ จิตบริการ และทักษะหัตถการ
+
+รูปแบบผลลัพธ์: แยก 3 หัวข้อพิสัย แต่ละข้อระบุระดับและคำกริยา + หมายเหตุความสมดุล`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้กับหัวข้อทักษะหัตถการ เช่น การให้สารน้ำทางหลอดเลือดดำ ที่ต้องครบทั้งความรู้ เจตคติความปลอดภัย และทักษะปฏิบัติ"
+},
+{
+  cat:"bloom",
+  title:"ยกระดับวัตถุประสงค์สู่การคิดขั้นสูง",
+  en:"Elevating to Higher-Order Thinking",
+  desc:"วิเคราะห์และยกระดับวัตถุประสงค์/ข้อสอบที่ติดอยู่ระดับความจำ ให้ขึ้นสู่วิเคราะห์–ประเมิน–สร้างสรรค์",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการพัฒนาการคิดขั้นสูง (Higher-Order Thinking) ในการศึกษาพยาบาล
+
+บริบท: นี่คือวัตถุประสงค์/ข้อสอบ/กิจกรรมปัจจุบันของรายวิชา [ระบุ]: [วางรายการที่ต้องการยกระดับ]
+
+งาน:
+1. จำแนกว่าแต่ละรายการอยู่ระดับ Bloom ใด
+2. ระบุว่ารายการใดยัง "กระจุก" อยู่ที่ระดับจำ/เข้าใจ ทั้งที่ชั้นปีและสมรรถนะวิชาชีพควรสูงกว่า
+3. เขียนเวอร์ชันยกระดับให้ถึงระดับวิเคราะห์/ประเมินค่า/สร้างสรรค์ พร้อมตัวอย่างสถานการณ์ทางคลินิกประกอบ
+4. เสนอกิจกรรมที่จะพัฒนาการคิดระดับนั้น
+
+รูปแบบผลลัพธ์: ตารางเทียบ ก่อน → หลัง พร้อมเหตุผลและกิจกรรมเสริม`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ปรับคลังข้อสอบเก่าที่เน้นท่องจำ ให้เป็นข้อสอบสถานการณ์ (case-based) ที่วัดการตัดสินใจทางคลินิก"
+},
+
+/* ===== 4. SYLLABUS ===== */
+{
+  cat:"syllabus",
+  title:"พัฒนาโครงสร้างรายวิชา",
+  en:"Developing Course Structure",
+  desc:"ออกแบบสถาปัตยกรรมของรายวิชา — แบ่งหน่วย/โมดูล จัดสัดส่วนชั่วโมงทฤษฎี-ปฏิบัติ และลำดับเนื้อหาให้ต่อเนื่องตามหลัก scaffolding ก่อนลงรายละเอียดแผนการสอนรายสัปดาห์",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการออกแบบโครงสร้างและสถาปัตยกรรมรายวิชา (course architecture) ในหลักสูตรพยาบาล
+
+บริบท:
+- รายวิชา: [รหัส–ชื่อวิชา] [น(บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)] หน่วยกิต รวม [น] สัปดาห์
+- คำอธิบายรายวิชา: [วางคำอธิบายรายวิชา]
+- CLOs: [วาง CLO ทั้งหมด]
+- ข้อกำหนดชั่วโมงเรียนตามหน่วยกิต/เกณฑ์: [ระบุ]
+
+งาน:
+1. แบ่งเนื้อหาของรายวิชาออกเป็นหน่วยการเรียนรู้/โมดูลหลัก ตั้งชื่อหน่วยและระบุแก่นของแต่ละหน่วย
+2. จัดสัดส่วนชั่วโมง/น้ำหนักของแต่ละหน่วย ให้สอดคล้องกับหน่วยกิต ความสำคัญของเนื้อหา และ CLO ที่หน่วยนั้นรับผิดชอบ
+3. จัดลำดับหน่วยตามหลัก scaffolding (พื้นฐาน→ซับซ้อน, ทฤษฎี→ประยุกต์→ปฏิบัติ) พร้อมระบุเหตุผลของลำดับ และความเชื่อมโยงระหว่างหน่วย (prerequisite ภายในวิชา)
+4. ระบุว่าแต่ละหน่วยโยงกับ CLO ข้อใด เพื่อให้โครงสร้างครอบคลุม CLO ครบทุกข้อ ไม่มีหน่วยที่ลอยหรือ CLO ที่ไม่มีหน่วยรองรับ
+
+รูปแบบผลลัพธ์: แผนผังโครงสร้างรายวิชา + ตาราง (หน่วย | แก่นเนื้อหา | ชั่วโมง/น้ำหนัก | CLO ที่รับผิดชอบ) + คำอธิบายเหตุผลการจัดลำดับ`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้วางโครงรายวิชาในภาพรวมก่อน เป็นพิมพ์เขียวสำหรับเขียนแผนการสอนรายสัปดาห์และกรอกหมวดเนื้อหาใน มคอ.3 ให้สมดุลและครบ CLO"
+},
+{
+  cat:"syllabus",
+  title:"ร่างประมวลรายวิชา (มคอ.3) ฉบับสมบูรณ์",
+  en:"Course Syllabus (TQF3) Draft",
+  desc:"สร้างรายละเอียดของรายวิชา (มคอ.3) ครบทุกหมวด จากคำอธิบายรายวิชาและ CLOs ที่กำหนด",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการจัดทำรายละเอียดของรายวิชา (มคอ.3) ตามกรอบมาตรฐานคุณวุฒิระดับอุดมศึกษา
+
+บริบท:
+- รายวิชา: [รหัส–ชื่อวิชา (ไทย/อังกฤษ)] [น(บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)] หน่วยกิต
+- คำอธิบายรายวิชา: [วางคำอธิบายรายวิชา]
+- CLOs: [วาง CLO ทั้งหมด]
+- PLOs ที่รับผิดชอบ + ระดับ I/R/M: [วาง]
+- จำนวนสัปดาห์/คาบ: [ระบุ]
+
+งาน: ร่าง มคอ.3 ให้ครบหมวด ได้แก่ ข้อมูลทั่วไป, จุดมุ่งหมายและวัตถุประสงค์, ลักษณะและการดำเนินการ, การพัฒนาผลการเรียนรู้ (โยง CLO–กลยุทธ์การสอน–การประเมิน), แผนการสอนรายสัปดาห์, ทรัพยากรประกอบ, การประเมินและปรับปรุงรายวิชา
+
+รูปแบบผลลัพธ์: เอกสารตามโครงสร้าง มคอ.3 หัวข้อครบ พร้อมตารางแผนการสอน ใช้ภาษาราชการไทย`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์ผู้รับผิดชอบรายวิชาใช้ร่าง มคอ.3 ตั้งต้นก่อนเปิดภาคเรียน ลดเวลาจัดทำเอกสารและกันการตกหล่นหมวด"
+},
+{
+  cat:"syllabus",
+  title:"ออกแบบแผนการสอนรายสัปดาห์",
+  en:"Weekly Teaching Plan",
+  desc:"จัดลำดับเนื้อหา กิจกรรม สื่อ และการวัดผลรายสัปดาห์ให้สอดคล้องกับ CLO และจำนวนคาบ",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการออกแบบแผนการสอน (lesson sequencing) ทางการพยาบาล
+
+บริบท: รายวิชา [ระบุ] มี CLOs [วาง] หัวข้อเนื้อหาหลัก [ระบุ] จำนวน [น] สัปดาห์ คาบละ [ชม.] รูปแบบ [บรรยาย/ปฏิบัติ/ผสมผสาน]
+
+งาน:
+1. จัดลำดับเนื้อหาตามหลัก scaffolding (ง่าย→ซับซ้อน, รูปธรรม→นามธรรม)
+2. ระบุในแต่ละสัปดาห์: หัวข้อ, CLO ที่เกี่ยวข้อง, กิจกรรมการเรียนรู้, สื่อ/แหล่งเรียนรู้, ภาระงาน, วิธีวัดผล
+3. กระจายการประเมินแบบ formative ตลอดเทอม ไม่กระจุกปลายเทอม
+
+รูปแบบผลลัพธ์: ตารางแผนการสอนรายสัปดาห์ (สัปดาห์ | หัวข้อ | CLO | กิจกรรม | สื่อ | การวัดผล)`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้กรอกหมวดแผนการสอนใน มคอ.3 และเป็นปฏิทินการเรียนแจกนักศึกษาในคาบแรก"
+},
+{
+  cat:"syllabus",
+  title:"ออกแบบ มคอ.4 รายวิชาปฏิบัติ/ฝึกภาคสนาม",
+  en:"Clinical Practicum Syllabus (TQF4)",
+  desc:"จัดทำรายละเอียดของประสบการณ์ภาคสนาม (มคอ.4) สำหรับการฝึกปฏิบัติทางคลินิก",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการออกแบบประสบการณ์ภาคสนาม/การฝึกปฏิบัติทางคลินิกในหลักสูตรพยาบาล
+
+บริบท:
+- รายวิชาปฏิบัติ: [รหัส–ชื่อวิชา] [น] หน่วยกิต จำนวน [ชม.] ฝึกที่ [แหล่งฝึก]
+- CLOs ของรายวิชาฝึกปฏิบัติ: [วาง]
+- สมรรถนะ/หัตถการที่ต้องผ่าน: [ระบุ]
+
+งาน: ร่าง มคอ.4 ครบหมวด ได้แก่ ข้อมูลทั่วไป, จุดมุ่งหมาย, การพัฒนาผลการเรียนรู้ในภาคปฏิบัติ, การวางแผนและเตรียมการ (บทบาทอาจารย์นิเทศ/พี่เลี้ยง), กระบวนการนิเทศ, การประเมินผลภาคปฏิบัติ (รวม logbook/สมุดบันทึกหัตถการ), การประเมินและปรับปรุง
+
+รูปแบบผลลัพธ์: เอกสารตามโครงสร้าง มคอ.4 + ตารางสมรรถนะ/หัตถการที่ต้องประเมิน`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์ผู้รับผิดชอบวิชาฝึกปฏิบัติใช้จัดทำ มคอ.4 และออกแบบ logbook ให้สอดคล้องกับสมรรถนะที่สภาการพยาบาลกำหนด"
+},
+
+/* ===== 5. INSTRUCTION ===== */
+{
+  cat:"instruction",
+  title:"ออกแบบกิจกรรม Active Learning ตรง CLO",
+  en:"Active Learning Activity Design",
+  desc:"ออกแบบกิจกรรมการเรียนรู้เชิงรุกที่เหมาะกับเนื้อหาและส่งเสริม CLO เป้าหมายโดยตรง",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการจัดการเรียนรู้เชิงรุก (Active Learning) ในการศึกษาพยาบาล
+
+บริบท: หัวข้อ [ระบุ] รายวิชา [ระบุ] CLO เป้าหมาย [วาง] จำนวนนักศึกษา [..] เวลา [..] นาที ทรัพยากรที่มี [ระบุ]
+
+งาน:
+1. เสนอกิจกรรม Active Learning ที่เหมาะสม 2–3 รูปแบบ (เช่น case-based, TBL, jigsaw, concept mapping, flipped) พร้อมเหตุผลว่าทำไมเหมาะกับ CLO นี้
+2. ออกแบบขั้นตอนกิจกรรมที่เลือก แบ่งเป็น ก่อน–ระหว่าง–หลังเรียน พร้อมเวลาแต่ละช่วง
+3. ระบุบทบาทอาจารย์/นักศึกษา และวิธีประเมินผลระหว่างกิจกรรม
+
+รูปแบบผลลัพธ์: ตารางเปรียบเทียบรูปแบบ + แผนกิจกรรมฉบับละเอียด (run sheet)`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้เปลี่ยนคาบบรรยายเนื้อหาหนัก เช่น การแปลผล ABG ให้เป็นกิจกรรมกลุ่มที่นักศึกษาได้คิดและตัดสินใจ"
+},
+{
+  cat:"instruction",
+  title:"ออกแบบสถานการณ์จำลองทางการพยาบาล",
+  en:"Nursing Simulation Scenario (SBL)",
+  desc:"สร้างสถานการณ์จำลอง (simulation) ครบองค์ประกอบ พร้อมแนวทาง debriefing ตามมาตรฐาน",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการจัดการเรียนรู้ด้วยสถานการณ์จำลอง (Simulation-Based Learning) ทางการพยาบาล
+
+บริบท: หัวข้อ/ภาวะผู้ป่วย [ระบุ เช่น ภาวะช็อกจากการติดเชื้อ] รายวิชา [ระบุ] ระดับนักศึกษา [ปี..] CLO เป้าหมาย [วาง] ระดับ fidelity ที่ใช้ได้ [ระบุ]
+
+งาน:
+1. เขียน scenario ครบองค์ประกอบ: วัตถุประสงค์, ข้อมูลผู้ป่วย, ฉาก/อุปกรณ์, บทบาท, ลำดับเหตุการณ์ (progression) ตามการตอบสนองของนักศึกษา, สัญญาณชีพที่เปลี่ยนแปลง
+2. กำหนดเกณฑ์พฤติกรรมที่คาดหวัง (performance checklist) ตาม CLO
+3. ออกแบบคำถาม debriefing ตามรูปแบบ [เช่น GAS/PEARLS/3 phases]
+
+รูปแบบผลลัพธ์: เอกสาร scenario + checklist + ชุดคำถาม debriefing`,
+  uc:"<b>กรณีใช้งาน:</b> ทีมศูนย์ฝึกทักษะ (skills/simulation lab) ใช้สร้างสถานการณ์ใหม่ให้ตรง CLO และมี debriefing เป็นระบบแทนการสรุปลอย ๆ"
+},
+{
+  cat:"instruction",
+  title:"ออกแบบการสอนภาคปฏิบัติทางคลินิก",
+  en:"Clinical Teaching Design",
+  desc:"วางแผนการสอนและนิเทศบนหอผู้ป่วย ใช้เทคนิคสอนข้างเตียงและการตั้งคำถามกระตุ้นการคิด",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการสอนทางคลินิก (Clinical Teaching) และการนิเทศนักศึกษาพยาบาล
+
+บริบท: ฝึกที่ [หอผู้ป่วย/แผนก] นักศึกษา [จำนวน] คน ปี [..] CLO/สมรรถนะเป้าหมาย [วาง] เวลานิเทศต่อรอบ [ระบุ] ข้อจำกัด [เช่น จำนวนผู้ป่วย/ภาระงาน]
+
+งาน:
+1. วางแผนการนิเทศหนึ่งรอบฝึก: pre-conference, การมอบหมายผู้ป่วย, การสอนข้างเตียง (bedside teaching), post-conference
+2. เสนอเทคนิคการตั้งคำถามกระตุ้นการคิดทางคลินิก (เช่น One-Minute Preceptor, SNAPPS)
+3. ออกแบบวิธีให้ feedback ที่สร้างสรรค์และวิธีบันทึกพัฒนาการรายบุคคล
+
+รูปแบบผลลัพธ์: แผนการนิเทศตามลำดับเวลา + ชุดคำถามตัวอย่าง + แบบฟอร์ม feedback`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์นิเทศใช้เป็นโครงการสอนข้างเตียงให้เป็นระบบ และฝึกใช้คำถามกระตุ้นการให้เหตุผลทางคลินิก (clinical reasoning)"
+},
+
+/* ===== 6. ASSESSMENT ===== */
+{
+  cat:"assess",
+  title:"ออกแบบวิธีการวัดและประเมินผล",
+  en:"Designing Assessment Methods",
+  desc:"เลือกและออกแบบวิธีการวัดให้เหมาะกับชนิดของ CLO แต่ละข้อ (ความรู้/ทักษะปัญญา/เจตคติ/ทักษะปฏิบัติ) ผสม formative–summative อย่างสมเหตุผล ไม่วัดผิดเครื่องมือ",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการออกแบบวิธีการวัดและประเมินผล (Assessment Methods) ตามหลัก constructive alignment ทางการศึกษาพยาบาล
+
+บริบท:
+- รายวิชา [ระบุ] CLOs พร้อมระดับ Bloom/พิสัย: [วาง]
+- ลักษณะการจัดการเรียนรู้: [บรรยาย/ปฏิบัติในห้อง lab/ฝึกคลินิก/ผสมผสาน]
+- ทรัพยากรและข้อจำกัด: [จำนวนนักศึกษา เวลา ผู้ประเมิน อุปกรณ์]
+
+งาน:
+1. สำหรับ CLO แต่ละข้อ เสนอวิธีการวัดที่ "ตรงชนิดและระดับ" ของผลลัพธ์ พร้อมเหตุผล เช่น
+   - ความรู้/ความเข้าใจ → ข้อสอบปรนัย/อัตนัย, MCQ ระดับประยุกต์
+   - ทักษะปัญญา/การตัดสินใจทางคลินิก → ข้อสอบสถานการณ์ (case/SCT), การวิเคราะห์กรณี, concept map
+   - เจตคติ/จิตพิสัย → การสังเกตพฤติกรรม, reflective journal, self/peer assessment
+   - ทักษะปฏิบัติ → OSCE, DOPS/Mini-CEX, การประเมินด้วย checklist + rubric, logbook
+2. จัดสมดุล formative (เพื่อพัฒนา) กับ summative (เพื่อตัดสิน) ตลอดรายวิชา พร้อมเสนอสัดส่วนคะแนนเบื้องต้นและช่วงเวลาประเมิน
+3. ตรวจว่าไม่มี CLO ใดวัดผิดเครื่องมือ (เช่น CLO ปฏิบัติแต่วัดด้วยข้อสอบความจำ) และไม่มี CLO ใดขาดการวัด
+4. ระบุประเด็นคุณภาพการวัด: ความตรง (validity) ความเที่ยง (reliability) และความเป็นธรรม ที่ต้องดูแลในแต่ละวิธี
+
+รูปแบบผลลัพธ์: ตาราง (CLO | ชนิด/ระดับ | วิธีวัดที่เสนอ | formative/summative | สัดส่วนคะแนน | เหตุผล) + ข้อเสนอแนะด้านคุณภาพการวัด`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ในขั้นออกแบบรายวิชาเพื่อเลือกวิธีวัดให้ตรงชนิด CLO ก่อนลงรายละเอียดเป็น Test Blueprint, rubric หรือสถานี OSCE ในพรอมต์ถัดไป"
+},
+{
+  cat:"assess",
+  title:"ออกแบบแผนการวัดผล + Test Blueprint",
+  en:"Assessment Plan & Test Blueprint",
+  desc:"วางแผนการวัดประเมินผลทั้งรายวิชา และสร้างผังข้อสอบ (table of specifications) ให้ตรง CLO และระดับ Bloom",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการวัดและประเมินผลการศึกษา (Educational Measurement) ทางการพยาบาล
+
+บริบท:
+- รายวิชา [ระบุ] CLOs [วาง]
+- สัดส่วนคะแนน/น้ำหนักหัวข้อ: [ระบุ]
+- รูปแบบการวัดที่ใช้ได้: [ปรนัย/อัตนัย/ปฏิบัติ/ชิ้นงาน/OSCE]
+
+งาน:
+1. ออกแบบแผนการประเมินทั้งรายวิชา แยก formative/summative โยงทุกชิ้นกับ CLO และสัดส่วนคะแนน
+2. สร้าง Test Blueprint (table of specifications): หัวข้อ × ระดับ Bloom × จำนวนข้อ/คะแนน ให้สมดุลตามน้ำหนักเนื้อหาและไม่กระจุกที่ระดับจำ
+3. ตรวจว่าทุก CLO มีเครื่องมือวัดรองรับ และไม่มี CLO ใดวัดเกิน/ขาด
+
+รูปแบบผลลัพธ์: ตารางแผนประเมิน + ตาราง Test Blueprint + บทวิเคราะห์ความสมดุล`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ก่อนออกข้อสอบกลางภาค/ปลายภาค เพื่อให้สัดส่วนข้อสอบสะท้อนน้ำหนักเนื้อหาและระดับการคิดที่ CLO กำหนด"
+},
+{
+  cat:"assess",
+  title:"สร้างเกณฑ์การให้คะแนน (Rubric)",
+  en:"Scoring Rubric Design",
+  desc:"พัฒนา analytic/holistic rubric สำหรับประเมินชิ้นงาน รายงาน หรือการปฏิบัติ ให้วัดตรง CLO และลดอคติ",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการสร้างเกณฑ์การประเมิน (Rubric) ที่มีความเที่ยงและตรง
+
+บริบท: ภาระงานที่ต้องประเมิน [ระบุ เช่น nursing care plan / รายงานกรณีศึกษา / การนำเสนอ / หัตถการ] CLO ที่ต้องการวัด [วาง] คะแนนเต็ม [..] ระดับนักศึกษา [..]
+
+งาน:
+1. เลือกชนิด rubric ที่เหมาะ (analytic หรือ holistic) พร้อมเหตุผล
+2. กำหนดเกณฑ์ย่อย (criteria) ที่สะท้อน CLO โดยตรง 4–6 ด้าน
+3. เขียนคำบรรยายระดับคุณภาพ (เช่น 4=ดีเยี่ยม ถึง 1=ต้องปรับปรุง) ให้ชัดเจน สังเกตได้ ลดการตีความ
+4. ใส่น้ำหนักแต่ละเกณฑ์และวิธีรวมคะแนน
+
+รูปแบบผลลัพธ์: ตาราง rubric พร้อมใช้ + หมายเหตุวิธีใช้เพื่อความเที่ยงระหว่างผู้ประเมิน (inter-rater)`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ประเมิน nursing care plan หรือการนำเสนอกรณีศึกษา ให้คะแนนยุติธรรม โปร่งใส และนักศึกษาเข้าใจเกณฑ์ล่วงหน้า"
+},
+{
+  cat:"assess",
+  title:"ออกแบบการสอบ OSCE / ประเมินสมรรถนะคลินิก",
+  en:"OSCE & Clinical Competency Assessment",
+  desc:"ออกแบบสถานีสอบ OSCE พร้อม checklist และเกณฑ์ตัดสินผ่าน สำหรับประเมินสมรรถนะปฏิบัติ",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการประเมินสมรรถนะทางคลินิกด้วย OSCE (Objective Structured Clinical Examination)
+
+บริบท: สมรรถนะ/หัตถการที่ต้องประเมิน [ระบุ] รายวิชา [ระบุ] ระดับนักศึกษา [..] เวลาต่อสถานี [นาที] จำนวนผู้สอบ/ทรัพยากร [ระบุ]
+
+งาน:
+1. ออกแบบสถานีสอบ: สถานการณ์/โจทย์, บทบาทผู้ป่วยมาตรฐาน (ถ้ามี), อุปกรณ์, คำสั่งสำหรับผู้สอบ
+2. สร้าง checklist การประเมินที่อิงพฤติกรรมสังเกตได้ พร้อมน้ำหนักคะแนน และรายการ critical action (ทำผิด=ไม่ผ่าน) เช่น ความปลอดภัยผู้ป่วย
+3. กำหนดเกณฑ์ตัดสินผ่าน (standard setting) แนวทางใดเหมาะ เช่น borderline regression/Angoff
+4. แนวทางสร้างความเที่ยงระหว่างกรรมการและการ calibrate
+
+รูปแบบผลลัพธ์: เอกสารสถานี + checklist + เกณฑ์ผ่าน + ข้อควรระวังด้านความเที่ยง`,
+  uc:"<b>กรณีใช้งาน:</b> คณะกรรมการวัดผลใช้จัดสอบ OSCE ปลายภาคหรือสอบประมวลความรู้ก่อนขึ้นฝึกปฏิบัติ ให้มีมาตรฐานและตัดสินผ่านอย่างมีหลักการ"
+},
+
+/* ===== 7. VERIFY ===== */
+{
+  cat:"verify",
+  title:"จัดทำรายงานผลการดำเนินการรายวิชา (มคอ.5/6)",
+  en:"Course Report (TQF5/6)",
+  desc:"สังเคราะห์ผลการสอน ผลสัมฤทธิ์ และปัญหา เพื่อจัดทำ มคอ.5 (ทฤษฎี) หรือ มคอ.6 (ปฏิบัติ)",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการจัดทำรายงานผลการดำเนินการของรายวิชา (มคอ.5/มคอ.6)
+
+บริบท:
+- รายวิชา [ระบุ] ภาคการศึกษา [ระบุ]
+- ผลการประเมินผู้เรียน: [วางข้อมูลคะแนน/การกระจาย/ร้อยละผ่าน CLO]
+- ผลประเมินการสอนโดยนักศึกษา: [วาง]
+- ปัญหา/อุปสรรคที่พบ: [ระบุ]
+- มคอ.3 ที่วางแผนไว้: [แนบ/สรุป]
+
+งาน:
+1. เปรียบเทียบสิ่งที่วางแผน (มคอ.3) กับผลที่เกิดจริง ระบุส่วนที่เป็นไปตามแผนและส่วนที่คลาดเคลื่อน
+2. วิเคราะห์ผลสัมฤทธิ์รายข้อ CLO ว่าบรรลุหรือไม่ พร้อมหลักฐาน
+3. สรุปปัญหาและข้อเสนอเพื่อปรับปรุงรายวิชาในรอบถัดไป
+
+รูปแบบผลลัพธ์: เอกสารตามโครงสร้าง มคอ.5/6 ใช้ภาษาราชการไทย พร้อมตารางสรุปผลตาม CLO`,
+  uc:"<b>กรณีใช้งาน:</b> อาจารย์ผู้รับผิดชอบรายวิชาใช้สังเคราะห์ผลปลายภาคเป็น มคอ.5/6 ภายในกำหนด 30 วัน พร้อมข้อเสนอ CQI ที่จับต้องได้"
+},
+{
+  cat:"verify",
+  title:"ออกแบบกระบวนการทวนสอบผลสัมฤทธิ์",
+  en:"Verification of Learning Outcomes",
+  desc:"วางกระบวนการและเครื่องมือทวนสอบผลสัมฤทธิ์ตามมาตรฐานผลการเรียนรู้ ทั้งระดับรายวิชาและหลักสูตร",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการทวนสอบผลสัมฤทธิ์ตามมาตรฐานผลการเรียนรู้ (Verification) ในระบบประกันคุณภาพการศึกษา
+
+บริบท: หลักสูตร [ระบุ] ต้องการออกแบบระบบทวนสอบ รายวิชาเป้าหมาย [ระบุ] ข้อมูลที่มี [ข้อสอบ/ชิ้นงาน/ผลคะแนน/มคอ.3,5]
+
+งาน:
+1. เสนอวิธีทวนสอบที่เหมาะสม ทั้งระดับรายวิชา (เช่น พิจารณาข้อสอบ–เกณฑ์–ตัวอย่างงาน) และระดับหลักสูตร
+2. ออกแบบเครื่องมือ: แบบทวนสอบความสอดคล้องระหว่างข้อสอบ/ชิ้นงานกับ CLO และระดับ Bloom
+3. กำหนดขั้นตอน ผู้รับผิดชอบ และเกณฑ์การตัดสินว่ารายวิชา "ผ่านการทวนสอบ"
+4. เสนอวิธีนำผลทวนสอบไปปรับปรุง
+
+รูปแบบผลลัพธ์: ผังกระบวนการทวนสอบ + แบบฟอร์มเครื่องมือ + เกณฑ์ตัดสิน`,
+  uc:"<b>กรณีใช้งาน:</b> คณะกรรมการประกันคุณภาพระดับหลักสูตรใช้ออกแบบระบบทวนสอบประจำปี ให้มีหลักฐานชัดเจนสำหรับการประเมิน AUN-QA"
+},
+{
+  cat:"verify",
+  title:"วิเคราะห์และปรับปรุงรายวิชา (CQI/PDCA)",
+  en:"Course Improvement (CQI/PDCA)",
+  desc:"แปลงผลการประเมินและทวนสอบ เป็นแผนปรับปรุงรายวิชาเชิงระบบตามวงจร PDCA",
+  prompt:`บทบาท: คุณเป็นผู้เชี่ยวชาญการพัฒนาคุณภาพอย่างต่อเนื่อง (CQI) ในการจัดการเรียนการสอน
+
+บริบท: รายวิชา [ระบุ] มีข้อมูลย้อนหลัง [ระบุ ปี/ภาค] ดังนี้
+- ประเด็นปัญหาจาก มคอ.5/6: [วาง]
+- ผลการทวนสอบ: [วาง]
+- ข้อเสนอแนะจากนักศึกษา/ผู้ทรงคุณวุฒิ: [วาง]
+
+งาน:
+1. จัดกลุ่มและจัดลำดับความสำคัญของปัญหา (เช่น ผลกระทบต่อ CLO × ความเป็นไปได้ในการแก้)
+2. วิเคราะห์รากของปัญหา (root cause) แต่ละประเด็นหลัก
+3. จัดทำแผนปรับปรุงตาม PDCA ระบุ กิจกรรม–ผู้รับผิดชอบ–ระยะเวลา–ตัวชี้วัดความสำเร็จ
+4. ระบุว่าการปรับปรุงจะสะท้อนกลับเข้าสู่ มคอ.3 รอบหน้าอย่างไร
+
+รูปแบบผลลัพธ์: ตารางจัดลำดับปัญหา + การวิเคราะห์ root cause + แผนปรับปรุง PDCA`,
+  uc:"<b>กรณีใช้งาน:</b> ใช้ปิดวงจรคุณภาพรายวิชา เปลี่ยนเสียงสะท้อนปลายภาคให้เป็นการปรับปรุงที่ตามรอยได้จริงในเทอมถัดไป"
+},
+];
+
+/* ===== RENDER ===== */
+const grid = document.getElementById('grid');
+const filters = document.getElementById('filters');
+const search = document.getElementById('search');
+const clearBtn = document.getElementById('clearBtn');
+const toast = document.getElementById('toast');
+let activeCat = 'all';
+let query = '';
+
+function catName(id){const c=CATS.find(x=>x.id===id);return c?c.name:id;}
+function catIcon(id){const c=CATS.find(x=>x.id===id);return c?c.icon:'';}
+
+function highlight(text){
+  // highlight [..] placeholders and section headers (บทบาท/บริบท/งาน/รูปแบบผลลัพธ์)
+  let t = text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  t = t.replace(/\[([^\]]+)\]/g,'<span class="ph">[$1]</span>');
+  t = t.replace(/^(บทบาท|บริบท|งาน|รูปแบบผลลัพธ์):/gm,'<span class="sec">$1:</span>');
+  return t;
+}
+
+function buildFilters(){
+  let html = `<button class="chip active" data-cat="all">ทั้งหมด <span class="cnt">${PROMPTS.length}</span></button>`;
+  CATS.forEach(c=>{
+    const n = PROMPTS.filter(p=>p.cat===c.id).length;
+    html += `<button class="chip" data-cat="${c.id}">${c.icon} ${c.name} <span class="cnt">${n}</span></button>`;
+  });
+  filters.innerHTML = html;
+  filters.querySelectorAll('.chip').forEach(ch=>{
+    ch.addEventListener('click',()=>{
+      filters.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+      ch.classList.add('active');
+      activeCat = ch.dataset.cat;
+      render();
+    });
+  });
+}
+
+function render(){
+  const q = query.trim().toLowerCase();
+  const items = PROMPTS.filter(p=>{
+    const okCat = activeCat==='all' || p.cat===activeCat;
+    const hay = (p.title+' '+p.en+' '+p.desc+' '+p.prompt+' '+p.uc+' '+catName(p.cat)).toLowerCase();
+    const okQ = !q || hay.includes(q);
+    return okCat && okQ;
+  });
+
+  if(items.length===0){
+    grid.innerHTML = `<div class="empty">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <h4>ไม่พบพรอมต์ที่ตรงกับคำค้น</h4>
+      <p>ลองใช้คำอื่น เช่น CLO, Bloom, rubric, มคอ.3 หรือเลือกหมวดอื่น</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = items.map((p,i)=>`
+    <article class="card">
+      <div class="card-head">
+        <span class="cat-tag">${catIcon(p.cat)} ${catName(p.cat)}</span>
+        <h3>${p.title}</h3>
+        <div class="en">${p.en}</div>
+        <p class="desc">${p.desc}</p>
+      </div>
+      <div class="prompt-wrap">
+        <div class="prompt-bar">
+          <span class="lbl">พรอมต์ · โครงสร้าง <span class="rtcf">RTCF</span></span>
+          <button class="copy-btn" data-i="${PROMPTS.indexOf(p)}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            คัดลอก
+          </button>
+        </div>
+        <pre>${highlight(p.prompt)}</pre>
+      </div>
+      <div class="usecase">
+        <div class="uc-head">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>
+          ตัวอย่างการนำไปใช้
+        </div>
+        <p>${p.uc}</p>
+      </div>
+    </article>
+  `).join('');
+
+  grid.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const idx = +btn.dataset.i;
+      copyText(PROMPTS[idx].prompt, (ok)=>{
+        if(ok){
+          btn.classList.add('done');
+          btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> คัดลอกแล้ว`;
+          showToast('คัดลอกพรอมต์แล้ว พร้อมนำไปใช้');
+        }else{
+          showToast('คัดลอกอัตโนมัติไม่ได้ กรุณาเลือกข้อความแล้วคัดลอกเอง (Ctrl/Cmd+C)');
+        }
+        setTimeout(()=>{
+          btn.classList.remove('done');
+          btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> คัดลอก`;
+        },1800);
+      });
+    });
+  });
+
+  // clicking the prompt text itself also selects it, as a manual-copy fallback aid
+  grid.querySelectorAll('pre').forEach(pre=>{
+    pre.addEventListener('click',()=>{
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    });
+  });
+}
+
+let toastTimer;
+const toastMsg = toast.querySelector('span');
+function showToast(msg){
+  if(msg && toastMsg) toastMsg.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>toast.classList.remove('show'),2600);
+}
+
+function copyText(text, cb){
+  // Preferred path: async Clipboard API (needs secure context + permission)
+  if(navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(()=>cb(true)).catch(()=>legacyCopy(text, cb));
+  }else{
+    legacyCopy(text, cb);
+  }
+}
+
+function legacyCopy(text, cb){
+  // Fallback path: hidden textarea + execCommand, works inside iframes/older browsers
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    ta.style.left = '-1000px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    cb(ok);
+  }catch(e){
+    cb(false);
+  }
+}
+
+search.addEventListener('input',e=>{
+  query = e.target.value;
+  clearBtn.classList.toggle('show', query.length>0);
+  render();
+});
+clearBtn.addEventListener('click',()=>{
+  query=''; search.value=''; clearBtn.classList.remove('show'); search.focus(); render();
+});
+
+buildFilters();
+render();
+</script>
+</body>
+</html>
